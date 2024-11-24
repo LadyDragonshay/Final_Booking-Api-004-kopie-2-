@@ -10,7 +10,7 @@ import updateBookingById from "../services/bookings/updateBookingById.js";
 const router = express.Router();
 
 router.get("/", async (req, res, next) => {
-  console.log("GET /bookings");
+  //console.log("GET /bookings");
   try {
     const { userId } = req.query;
     const bookings = await getBookings(userId);
@@ -21,7 +21,7 @@ router.get("/", async (req, res, next) => {
 });
 
 router.get("/:id", async (req, res, next) => {
-  console.log(`GET /bookings/${req.params.id}`);
+  //console.log(`GET /bookings/${req.params.id}`);
   try {
     const { id } = req.params;
     const booking = await getBookingById(id);
@@ -39,7 +39,7 @@ router.get("/:id", async (req, res, next) => {
 });
 
 router.post("/", auth, async (req, res, next) => {
-  console.log("POST /bookings");
+  //console.log("POST /bookings");
   try {
     const {
       userId,
@@ -85,7 +85,7 @@ router.post("/", auth, async (req, res, next) => {
 });
 
 router.put("/:id", auth, async (req, res, next) => {
-  console.log(`PUT /bookings/${req.params.id}`);
+  //console.log(`PUT /bookings/${req.params.id}`);
   try {
     const { id } = req.params;
     const updatedBooking = await updateBookingById(id, req.body);
@@ -105,7 +105,7 @@ router.put("/:id", auth, async (req, res, next) => {
 });
 
 router.delete("/:id", auth, async (req, res, next) => {
-  console.log(`DELETE /bookings/${req.params.id}`);
+  //console.log(`DELETE /bookings/${req.params.id}`);
   try {
     const { id } = req.params;
     const deletedBooking = await deleteBookingById(id);
