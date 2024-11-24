@@ -10,7 +10,7 @@ import updateReviewById from "../services/reviews/updateReviewById.js";
 const router = express.Router();
 
 router.get("/", async (req, res, next) => {
-  console.log("GET /reviews");
+  //console.log("GET /reviews");
   try {
     const reviews = await getReviews();
     res.status(200).json(reviews);
@@ -20,7 +20,7 @@ router.get("/", async (req, res, next) => {
 });
 
 router.get("/:id", async (req, res, next) => {
-  console.log(`GET /reviews/${req.params.id}`);
+  //console.log(`GET /reviews/${req.params.id}`);
   try {
     const { id } = req.params;
     const review = await getReviewById(id);
@@ -36,7 +36,7 @@ router.get("/:id", async (req, res, next) => {
 });
 
 router.post("/", auth, async (req, res, next) => {
-  console.log("POST /reviews");
+  //console.log("POST /reviews");
   try {
     const { userId, propertyId, rating, comment } = req.body;
 
@@ -62,7 +62,7 @@ router.post("/", auth, async (req, res, next) => {
 });
 
 router.put("/:id", auth, async (req, res, next) => {
-  console.log(`PUT /reviews/${req.params.id}`);
+  //console.log(`PUT /reviews/${req.params.id}`);
   const { id } = req.params;
   const { userId, propertyId, rating, comment } = req.body;
   try {
@@ -84,7 +84,7 @@ router.put("/:id", auth, async (req, res, next) => {
 });
 
 router.delete("/:id", auth, async (req, res, next) => {
-  console.log(`DELETE /reviews/${req.params.id}`);
+  //console.log(`DELETE /reviews/${req.params.id}`);
   try {
     const { id } = req.params;
     const deletedReview = await deleteReviewById(id);
