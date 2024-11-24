@@ -10,7 +10,7 @@ import updateHostById from "../services/hosts/updateHostById.js";
 const router = express.Router();
 
 router.get("/", async (req, res, next) => {
-  console.log("GET /hosts");
+  //console.log("GET /hosts");
   try {
     const { name } = req.query;
     const hosts = await getHosts(name);
@@ -21,7 +21,7 @@ router.get("/", async (req, res, next) => {
 });
 
 router.get("/:id", async (req, res, next) => {
-  console.log(`GET /hosts/${req.params.id}`);
+  //console.log(`GET /hosts/${req.params.id}`);
   try {
     const { id } = req.params;
     const host = await getHostById(id);
@@ -37,7 +37,7 @@ router.get("/:id", async (req, res, next) => {
 });
 
 router.post("/", auth, async (req, res, next) => {
-  console.log("POST /hosts");
+  //console.log("POST /hosts");
   try {
     const {
       username,
@@ -81,7 +81,7 @@ router.post("/", auth, async (req, res, next) => {
 });
 
 router.put("/:id", auth, async (req, res, next) => {
-  console.log(`PUT /hosts/${req.params.id}`);
+  //console.log(`PUT /hosts/${req.params.id}`);
   try {
     const { id } = req.params;
     const {
@@ -119,7 +119,7 @@ router.put("/:id", auth, async (req, res, next) => {
 });
 
 router.delete("/:id", auth, async (req, res, next) => {
-  console.log(`DELETE /hosts/${req.params.id}`);
+  //console.log(`DELETE /hosts/${req.params.id}`);
   try {
     const { id } = req.params;
     const deletedHost = await deleteHostById(id);
