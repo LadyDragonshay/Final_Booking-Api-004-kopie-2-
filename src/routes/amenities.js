@@ -10,7 +10,7 @@ import updateAmenityById from "../services/amenities/updateAmenityById.js";
 const router = express.Router();
 
 router.get("/", async (req, res, next) => {
-  console.log("GET /amenities");
+  //console.log("GET /amenities");
   try {
     const amenities = await getAmenities();
     res.status(200).json(amenities);
@@ -20,7 +20,7 @@ router.get("/", async (req, res, next) => {
 });
 
 router.get("/:id", async (req, res, next) => {
-  console.log(`GET /amenities/${req.params.id}`);
+  //console.log(`GET /amenities/${req.params.id}`);
   try {
     const { id } = req.params;
     const amenity = await getAmenityById(id);
@@ -36,7 +36,7 @@ router.get("/:id", async (req, res, next) => {
 });
 
 router.post("/", auth, async (req, res, next) => {
-  console.log("POST /amenities");
+  //console.log("POST /amenities");
   try {
     const { name } = req.body;
 
@@ -57,7 +57,7 @@ router.post("/", auth, async (req, res, next) => {
 });
 
 router.put("/:id", auth, async (req, res, next) => {
-  console.log(`PUT /amenities/${req.params.id}`);
+  //console.log(`PUT /amenities/${req.params.id}`);
   try {
     const { id } = req.params;
     const { name } = req.body;
@@ -78,7 +78,7 @@ router.put("/:id", auth, async (req, res, next) => {
 });
 
 router.delete("/:id", auth, async (req, res, next) => {
-  console.log(`DELETE /amenities/${req.params.id}`);
+  //console.log(`DELETE /amenities/${req.params.id}`);
   try {
     const { id } = req.params;
     const amenity = await deleteAmenityById(id);
