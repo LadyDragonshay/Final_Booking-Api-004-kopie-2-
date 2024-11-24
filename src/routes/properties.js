@@ -10,7 +10,7 @@ import updatePropertyById from "../services/properties/updatePropertyById.js";
 const router = express.Router();
 
 router.get("/", async (req, res, next) => {
-  console.log("GET /properties");
+  //console.log("GET /properties");
   try {
     const { location, pricePerNight } = req.query;
     const properties = await getProperties(location, pricePerNight);
@@ -21,7 +21,7 @@ router.get("/", async (req, res, next) => {
 });
 
 router.get("/:id", async (req, res, next) => {
-  console.log(`GET /properties/${req.params.id}`);
+  //console.log(`GET /properties/${req.params.id}`);
   try {
     const { id } = req.params;
     const property = await getPropertyById(id);
@@ -37,7 +37,7 @@ router.get("/:id", async (req, res, next) => {
 });
 
 router.post("/", auth, async (req, res, next) => {
-  console.log("POST /properties");
+  //console.log("POST /properties");
   try {
     const {
       title,
@@ -89,7 +89,7 @@ router.post("/", auth, async (req, res, next) => {
 });
 
 router.put("/:id", auth, async (req, res, next) => {
-  console.log(`PUT /properties/${req.params.id}`);
+  //console.log(`PUT /properties/${req.params.id}`);
   const { id } = req.params;
   const {
     title,
@@ -126,7 +126,7 @@ router.put("/:id", auth, async (req, res, next) => {
 });
 
 router.delete("/:id", auth, async (req, res, next) => {
-  console.log(`DELETE /properties/${req.params.id}`);
+  //console.log(`DELETE /properties/${req.params.id}`);
   try {
     const { id } = req.params;
     const deletedProperty = await deletePropertyById(id);
